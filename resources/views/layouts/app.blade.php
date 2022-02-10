@@ -9,19 +9,19 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    @if(config('app.env') == 'local')
+    {{-- @if(config('app.env') == 'local') --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link href="{{ asset('jQuery-Smart-Wizard/styles/smart_wizard.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('jQuery-Smart-Wizard/styles/demo_style.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    @else
+    {{-- @else --}}
     <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
     <link href="{{ secure_asset('jQuery-Smart-Wizard/styles/smart_wizard.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ secure_asset('jQuery-Smart-Wizard/styles/demo_style.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
-    @endif
+    {{-- @endif --}}
     @yield('css')
     <!-- Scripts -->
     {{-- <script src="{{ asset('vue/js/vueApp.js') }}" defer=""></script> --}}
@@ -40,15 +40,15 @@
         @include('layouts.footer')
     </main>
    
-    @if(config('app.env') == 'local')
+    {{-- @if(config('app.env') == 'local') --}}
     <script src="{{ asset('jQuery-Smart-Wizard/js/jquery-1.4.2.min.js') }}"></script>
     <script src="{{ asset('jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
-    @else
+    {{-- @else --}}
     {{-- For heroku --}}
     <script src="{{ secure_asset('jQuery-Smart-Wizard/js/jquery-1.4.2.min.js') }}"></script>
     <script src="{{ secure_asset('jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
 
-    @endif
+    {{-- @endif --}}
     @yield('scripts')
 </body>
 
