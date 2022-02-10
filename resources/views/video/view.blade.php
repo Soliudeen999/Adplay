@@ -185,13 +185,7 @@
     </style>
 @endsection
 @section('content')
-    @php
-        if ($video->property->position == 'custom') {
-            $all = explode(',', $video->property->custom);
-            $top = $all[0];
-            $left = $all[1];
-        }
-    @endphp
+  
     <div class="main py-4">
         <div class="row">
             <div class="col-12 col-xl-12">
@@ -202,8 +196,12 @@
                                 <div class="col-xl-12 col-md-12">
                                     <div class="play-parent"> 
                                     @if($video->type == 'local')
-                                    <video autobuffer autoloop loop controls width="100%" height="100%" id="myvid" style="min-height: 500px;">
+                                    <video autobuffer autoloop loop controls width="100%" height="100%" id="myvid" style="min-height: 500px;">  
+                                        @if(config('app.env') == 'local')
                                         <source src="{{ asset($video->file_url)}}" type="video/mp4">
+                                        @else
+                                        <source src="{{ secure_asset($video->file_url)}}" type="video/mp4">
+                                        @endif
                                         {{-- <source src="{{ $video->file_url }}" type="video/ogg"> --}}
                                         <p><a href="/media/video.oga">Download this video file.</a></p>
                                     </video>
@@ -270,6 +268,7 @@
 
 @section('scripts')
     <script src="{{ asset('jQuery-Smart-Wizard/js/jquery-1.4.2.min.js') }}"></script>
+    <script src="{{ secure_asset('jQuery-Smart-Wizard/js/jquery-1.4.2.min.js') }}"></script>
     {{-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.all.min.js" integrity="sha512-IZ95TbsPTDl3eT5GwqTJH/14xZ2feLEGJRbII6bRKtE/HC6x3N4cHye7yyikadgAsuiddCY2+6gMntpVHL1gHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -5,9 +5,10 @@
 
 <link href="{{ asset('jQuery-Smart-Wizard/styles/smart_wizard.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('jQuery-Smart-Wizard/styles/demo_style.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('jQuery-Smart-Wizard/css/smart_wizard_theme_circles.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('jQuery-Smart-Wizard/css/smart_wizard_theme_dots.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('jQuery-Smart-Wizard/css/smart_wizard_theme_arrows.css') }}" rel="stylesheet" type="text/css" />
+
+{{-- For heroku --}}
+<link href="{{ secure_asset('jQuery-Smart-Wizard/styles/smart_wizard.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ secure_asset('jQuery-Smart-Wizard/styles/demo_style.css') }}" rel="stylesheet" type="text/css" />
 
 @endsection
 @section('content')
@@ -152,6 +153,10 @@
 
     <script src="{{ asset('jQuery-Smart-Wizard/js/jquery-1.4.2.min.js') }}"></script>
     <script src="{{ asset('jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
+
+    {{-- For heroku --}}
+    <script src="{{ secure_asset('jQuery-Smart-Wizard/js/jquery-1.4.2.min.js') }}"></script>
+    <script src="{{ secure_asset('jQuery-Smart-Wizard/js/jquery.smartWizard.js') }}"></script>
     <script type="">
 
         function addBody() {
